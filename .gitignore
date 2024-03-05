@@ -24,3 +24,4 @@ MANIFEST
 raw_data/
 .DS_Store
 .python-version
+.ipynb_checkpoints/
