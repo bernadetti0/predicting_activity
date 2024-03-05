@@ -23,3 +23,4 @@ MANIFEST
 
 raw_data/
 .DS_Store
+.python-version
