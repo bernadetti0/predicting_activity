@@ -1,0 +1,109 @@
+pip install matplotlib
+pip install plotly
+
+pip install --upgrade pip
+pip install -r https://gist.githubusercontent.com/krokrob/53ab953bbec16c96b9938fcaebf2b199/raw/9035bbf12922840905ef1fbbabc459dc565b79a3/minimal_requirements.txt
+pip list
+
+
+https://github.com/bernadetti0/predicting_activity/blob/first_branch_bernadette/predicting_activity/exploration.ipynb
+
+first_branch_arpita
+
+https://medium.com/the-apple-watch-project/every-step-we-take-3378b7d38c4a
+
+Data_Exploration_arp.ipynb
+
+Data Exploration:
+steps, heart rate, calories and distance
+
+data.norm_heart.value_counts()
+data_apple.steps.value_counts()
+data['Unnamed: 0'].nunique()
+plt.hist(data.age)
+plt.hist(data.activity)
+data.device.value_counts()
+data_apple.activity.value_counts()
+data_fitbit.activity.value_counts()
+plt.scatter(data.activity, data.hear_rate)
+
+#Data Cleansing:
+duplicates = data[data.duplicated() == True]
+duplicates
+
+data.isnull().sum()
+
+data.isnull().sum().any()
+
+data.info()
+
+corr = data_apple.select_dtypes(include = 'number')
+
+# Scatter matrix plot
+pd.plotting.scatter_matrix(corr, figsize=(10, 10))
+plt.show()
+
+sns.pairplot(corr)
+
+sns.heatmap(corr.corr())
+===========
+Today:
+# Apple Watch Correlation Heatmap
+#plt.figure(figsize = (15,8))
+#sns.heatmap(data_apple.corr(),annot=True,fmt='.1f')
+#ValueError: could not convert string to float: 'apple watch'
+
+# Create new features??
+
+#for Apple Watch, heart rate was the most important, 
+#while for Fitbit, steps were more important. 
+#Among the top six most important features for both Fitbit and Apple Watch were 
+#heart rate, steps, calories and distance. 
+#mean and SD values for continuous variables or count and per cent for categorical predictors for Apple Watch and Fitbit
+#Apple Watch Mean (SD)
+#Fitbit Watch Mean (SD)
+#The average height and weight
+#Average heart rate for apple and fitbit
+#Average steps per minute for apple and fitbit
+
+
+
+
+
+
+Data Cleansing:
+# Handle missing values (fill with mean)
+# E.g., fill missing values in 'age' column with mean
+#mean_age = data['age'].mean()
+#data['age'] = data['age'].fillna(mean_age)
+
+
+# Remove duplicate rows
+# new_data = data.drop_duplicates()
+
+
+# Convert data types if necessary
+# E.g., convert 'gender' column to categorical
+#df['gender'] = df['gender'].astype('category')
+
+cleaned the data and used linear interpolation on steps, heart rate, calories and distance to impute missing data. 
+
+calculates individualised target heart rate parameters, steps entropy as a measure of predictability of step count and the correlation coefficient between heart rate and steps
+
+how to develop the features to consider multiple physiological characteristics that could explain sitting, lying and different physical activities??
+
+========================================================================
+Analyses were conducted separately for Apple Watch and Fitbit. We first cleaned the data and used linear interpolation on steps, heart rate, calories and distance to impute missing data. Following this, we developed a feature set that included intensity (Karvonen formula)24 25 which calculates individualised target heart rate parameters, steps entropy as a measure of predictability of step count and the correlation coefficient between heart rate and steps.26 We developed the features to consider multiple physiological characteristics that could explain sitting, lying and different physical activities
+
+We used three different classification methods, Random Forest,27 28 Rotation Forest,29 and linear support vector machines (SVM),30 in our analysis.31 Model accuracy was examined using k-fold cross-validation. Data were randomly split into 10 subsamples. For each subsample, classification algorithms were developed. Each algorithm was then used to predict the error associated with each one of the subsamples. A sum of prediction errors was calculated over all subsamples to produce a final accuracy.32 In each model, we included the features described in table 1 and age, gender, height and weight. We chose these models because linear SVM33 and Random Forest models34 are common in physical activity research using research-grade accelerometers and Rotation Forest are similar methods to Random Forest.
+
+We evaluated model fit using accuracy, confusion matrices and feature ranking. Finally, to answer our second research question, we combined the Fitbit and Apple Watch data and added an additional feature, device type and reran a Rotation Forest model to see the difference between devices.
+
+Go to:
+Results
+Participants included 26 women and 23 men. The average age was 29.3 (min 18–max 56). Table 1 shows mean and SD values for continuous variables or count and per cent for categorical predictors for Apple Watch and Fitbit, respectively. The average height and weight were 1.7 m and 70.6 kg, respectively. Average heart rate during the entire study protocol was 91.1 for Apple Watch and 75.3 for Fitbit. Average steps per minute were 181.4 and 7.7 for Apple Watch and Fitbit, respectively. Table 1 also shows the feature descriptions and descriptive statistics for each feature included in the models.
+
+Table 2 shows the overall classification accuracies for the Random Forest, SVM and Rotation Forest models. The Rotation Forest model had the highest accuracy for Apple Watch, and the Random Forest model had the highest accuracy for Fitbit. However, the difference between the Random Forest and Rotation Forest models was small. As a result, we present the Rotation Forrest models. Tables 3 and 4 show the confusion matrices from the Rotation Forest model for Apple Watch and Fitbit data, respectively. Table 5 shows the top eight features from the χ² feature ranking for the Rotation Forest models.
+
+The results of feature ranking showed that for Apple Watch, heart rate was the most important, while for Fitbit, steps were more important. Among the top six most important features for both Fitbit and Apple Watch were heart rate, steps, calories and distance. We developed new features based on the literature, including normalised heart rate and intensity using the Karvonen formula, which were important in model accuracy. 
+
