@@ -20,8 +20,7 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
-
 raw_data/
 .DS_Store
-
-.ipynb_checkpoints
+.python-version
+.ipynb_checkpoints/
