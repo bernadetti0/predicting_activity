@@ -20,7 +20,6 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
-
 raw_data/
 .DS_Store
 .python-version
