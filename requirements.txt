@@ -1,2 +1,6 @@
-pip install matplotlib
-pip install plotly
+matplotlib==3.8.3
+plotly==5.19.0
+xgboost==2.0.3
+shap==0.44.1
+ipywidgets==8.1.2
+plot_confusion_matrix==0.0.2
