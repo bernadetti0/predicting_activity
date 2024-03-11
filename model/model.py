@@ -12,11 +12,11 @@ from sklearn.feature_selection import SelectFromModel
 
 # Load dataset into pandas DataFrame:
 
-def model_streamlit(watch):
+def model_streamlit(watch, df):
 
-    data_path = "raw_data/aw_fb_data.csv"
+    #data_path = "raw_data/aw_fb_data.csv"
 
-    df = pd.read_csv(data_path)
+    #df = pd.read_csv(data_path)
 
 
     # Data Cleaning :
@@ -71,7 +71,7 @@ def model_streamlit(watch):
 
         accuracy_apple = accuracy_score(y_test_apple, y_apple_pred_rf)
 
-        return rf_model
+        return rf_model, accuracy_apple, label_encoder_apple
 
 
     if watch == "fitbit":
@@ -105,4 +105,4 @@ def model_streamlit(watch):
 
         accuracy_fitbit = accuracy_score(y_test_fitbit, y_fitbit_pred_rf)
 
-        return rf_model2
+        return rf_model2, accuracy_fitbit, label_encoder_fitbit
