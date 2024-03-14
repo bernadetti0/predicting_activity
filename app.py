@@ -16,9 +16,7 @@ st.title('Predicting Activity')
 # Input fields for user to input data
 watch_type = st.text_input('What is the brand of your watch? (apple/fitbit)')
 
-
-# [['device', 'participant_id','age', 'gender', 'height','weight', 'steps', 'heart_rate', 'calories', 'distance', 'bmi']]
-# [['apple',  '82093840928',    '30',  'male',   '173',   '90',    '123234',   '100',       '12311',     '20',   '56789']]
+        model, acc, label_encoder = model_streamlit(watch_type.lower(), data)
 
 # Read user's CSV file as a DF
 # https://kitt.lewagon.com/camps/1543/lectures/content/05-ML_01-Fundamentals-of-Machine-Learning.html

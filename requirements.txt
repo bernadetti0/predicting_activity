@@ -4,3 +4,4 @@ xgboost==2.0.3
 shap==0.44.1
 ipywidgets==8.1.2
 plot_confusion_matrix==0.0.2
+streamlit==1.32.0
