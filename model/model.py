@@ -105,4 +105,4 @@ def model_streamlit(watch, df):
 
         accuracy_fitbit = accuracy_score(y_test_fitbit, y_fitbit_pred_rf)
 
-        return rf_model2, accuracy_fitbit, label_encoder_fitbit
+        return rf_model2, accuracy_fitbit, label_encoder_fitb
