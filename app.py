@@ -28,7 +28,7 @@ if watch_type.lower() == 'apple' or 'fitbit':
 
         #st.write('Model:', model)
 
-        st.write('Accuracy:', acc)
+        #st.write('Accuracy:', acc)
 
         # preprocess the data
         data_test_preprocessed = test_preprocessor(watch_type.lower(), data)
